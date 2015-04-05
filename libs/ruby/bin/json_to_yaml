@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'yaml'
+require 'timeout'
+
+begin
+  if ARGV.first
+    content = File.open(ARGV.first).read
+  else
+    content = Timeout::timeout(1) do
+      $stdin.read
+    end
+  end
+rescue
+  printf "%s\n", "Missing argument"
+  printf "%s:\n  %s\n", "Usage", "yaml_to_json <yaml file>"
+  exit 2
+end
+
+begin
+  data = JSON.parse(content)
+  yml = YAML::dump(data)
+  puts yml
+rescue
+  print "Failed to convert JSON to YAML"
+  exit 2
+end
+
+exit 0
