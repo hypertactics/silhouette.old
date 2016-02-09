@@ -1,9 +1,13 @@
-silhouette
-====
+# silhouette
 
-## What silhouette does
+## a silhouette for your user profile
 
-Buils a static system profile for your *nix profiles tools like Chef, Ansible or Rex.  This expands on the idea of profiles of profiles.  Allowing you to create mutiple profile sets that you can cherry pick from.  It helps me to think of it like Jykell but for Bash, Zsh and Fish.
+Use configuration management (Ansible) to describe your user profile(s).
 
-## Current Support
-Currently supports Ruby/Chef and Bash.  Future releases will have Python/Ansible and Perl/Rex, javascript/NodeJs supporting Zsh and Fish shells.
+## Dependencies
+- python
+- ansible
+
+### The goals
+- manage dotfiles via YAML (Ansible solves this out the door) which generates static dotfiles in a more custom way (per platform and maybe location someday)
+- install development tools with configuration management instead of custom shell scripts.
