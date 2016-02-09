@@ -1,0 +1,65 @@
+---
+git:
+  user:
+    name: mindmorass
+    email: mindmorass@gmail.com
+  
+  color:
+    diff: auto
+    status: auto
+    branch: auto
+    interactive: auto
+    ui: true
+    pager: true
+
+  color "branch":
+    current: cyan reverse white bold
+    local: cyan
+    remote: green 
+
+  color "status":
+    added: green bold
+    changed: yellow
+    untracked: white bold red 
+
+  color "diff":
+    new: green bold
+    old: yellow
+    frag: cyan
+    meta: red bold
+    current: yellow reverse
+    local: yellow
+    remote: green
+  
+  alias:
+    ss: status --short
+    ci: "!sh -c 'git add . && git commit -m \"$@\"' -"
+    deploy: "!sh -c 'git ci \"$@\" && git push' -"
+    di: diff
+    co: checkout
+    w: whatchanged
+    cp: cherry-pick
+    st: status -s
+    cl: clone
+    br: branch 
+    diff: diff --word-diff
+    dc: diff --cached
+    vimdiff: difftool --tool=vimdiff -y
+    vd: difftool --tool=vimdiff -y
+    unstage: reset HEAD
+    lol: log --oneline --graph --decorate
+    hist: log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
+    showdiff: "!sh -c 'git difftool --tool=vimdiff -y $1^ $1' -"
+    lg: "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+    x: "!gitx"
+    mup: "!git fetch origin && git rebase origin/master"
+    ir: "!git rebase -i origin/master"
+    done: "!git fetch && git rebase -i origin/master && git checkout master && git merge @{-1}"
+    cob: "checkout -b"
+    save: "!git add -A && git commit -m 'SAVEPOINT'"
+    wip: "!git add -u && git commit -m 'WIP'" 
+    undo: reset HEAD~1 --mixed
+    amend: commit -a --amend
+    ours: "!f() { git co --ours $@ && git add $@; }; f"
+    theirs: "!f() { git co --theirs $@ && git add $@; }; f"
+    latest: "!sh -c 'git log $1@{1}..$1@{0} \"$@\"'"

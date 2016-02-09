@@ -1,0 +1,7 @@
+---
+- name: install jupyter
+  tags: jupyter
+  pip: name=jupyter
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")

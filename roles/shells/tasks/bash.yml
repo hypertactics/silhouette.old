@@ -1,0 +1,14 @@
+---
+- name: install bash
+  tags: bash
+  package: name=bash state=latest
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX") or
+        (ansible_distribution == "Solaris")
+
+- name: bash dotfile
+  template: src=roles/shells/templates/bashrc.j2 dest={{ silhouette_dotfiles_path }}/.bashrc owner={{ silhouette_user }} mode=0600
+
+- name: bash inputrc
+  template: src=roles/shells/templates/inputrc.j2 dest={{ silhouette_dotfiles_path }}/.inputrc owner={{ silhouette_user }} mode=0600

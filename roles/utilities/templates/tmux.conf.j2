@@ -1,0 +1,78 @@
+## general
+
+source-file ~/.tmux.shared
+
+# make it easy to send C-b
+bind-key b send-prefix
+
+# prefix again goes to last window
+bind-key C-b last-window
+
+# main client conf
+
+source-file ~/.tmux.shared
+
+# change bind key to M-C-b
+set-option -g prefix M-C-b
+
+# prefix again goes to last window
+bind-key M-C-b last-window
+
+# reload
+bind r source-file ~/.tmux.master
+
+# window navigation
+bind-key -n M-C-h prev
+bind-key -n M-C-l next
+bind-key -n M-C-n select-pane -t :.-
+bind-key -n M-C-p select-pane -t :.+
+
+# shared amongst all tmux
+
+# use the canonical ssh auth sock location setup by shell
+setenv SSH_AUTH_SOCK "/tmp/ssh-agent-$USER-screen"
+
+# VI keybindings please
+setw -g mode-keys vi
+
+# VI for splitting
+bind s split-window -v
+bind v split-window -h
+
+# VI for switching between
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# easily toggle synchronization (mnemonic: e is for echo)
+bind e setw synchronize-panes on
+bind E setw synchronize-panes off
+
+# make it so that I can hold down control for these
+bind-key C-d detach
+bind-key C-n next-window
+bind-key C-p previous-window
+
+# switch " over to selecting windows
+unbind '"'
+bind-key '"' choose-window
+
+## setting up status bar
+## mostly horked from http://www.linuxized.com/2010/05/switching-from-gnu-screen-to-tmux/
+
+set-option -g status-utf8 on
+# set-option -g status-justify centre
+set-option -g status-justify left
+set-option -g status-bg black
+set-option -g status-fg white
+set-option -g status-left-length 40
+
+setw -g window-status-bg black
+setw -g window-status-current-fg green
+setw -g window-status-alert-attr default
+setw -g window-status-alert-fg yellow
+
+set -g status-left '#[fg=red]#H#[fg=green]:#[fg=white]#S #[fg=green]][#[default]'
+#set -g status-right '#[fg=green]][#[fg=white] #T #[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'
+set -g status-right '#[fg=green]][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]'

@@ -1,0 +1,10 @@
+---
+- name: install sqlite
+  tags: sqlite
+  package: name=sqlite
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")
+
+- name: sqlite dotfile
+  template: src=roles/utilities/templates/sqliterc.j2 dest={{ silhouette_dotfiles_path }}/.sqliterc owner={{ silhouette_user }} mode=0600

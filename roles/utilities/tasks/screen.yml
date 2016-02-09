@@ -1,0 +1,9 @@
+---
+- name: install screen
+  tags: screen
+  package: name=screen
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian")
+
+- name: screen dotfile
+  template: src=roles/utilities/templates/screenrc.j2 dest={{ silhouette_dotfiles_path }}/.screenrc owner={{ silhouette_user }} mode=0600

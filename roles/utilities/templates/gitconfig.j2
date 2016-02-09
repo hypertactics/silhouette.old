@@ -1,0 +1,7 @@
+{% for category in git %}
+[{{ category }}]
+{% for a in git[category] %}
+  {{ a }} = {{ git[category][a] }} 
+{% endfor %}
+
+{% endfor %}

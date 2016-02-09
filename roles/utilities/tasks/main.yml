@@ -1,0 +1,14 @@
+---
+- include: ack.yml
+- include: dig.yml
+- include: htop.yml
+- include: git.yml
+- include: mtr.yml
+- include: coreutils.yml
+- include: colordiff.yml
+- include: screen.yml
+- include: tmux.yml
+- include: chefdk.yml
+- include: jupyter.yml
+- include: sqlite.yml
+- include: rpmbuild.yml

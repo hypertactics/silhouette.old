@@ -1,0 +1,7 @@
+---
+- name: install mtr
+  tags: mtr
+  package: name=mtr
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")

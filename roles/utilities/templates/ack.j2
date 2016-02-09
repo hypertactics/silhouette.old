@@ -1,0 +1,4 @@
+{% for name in ack %}
+--type-set
+{{ name }}={{ ','.join(ack[name]) }}
+{% endfor %}

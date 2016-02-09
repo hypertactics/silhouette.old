@@ -1,0 +1,4 @@
+---
+- include_vars: dig.yml
+- name: install digrc
+  template: src=roles/utilities/templates/digrc.j2 dest={{ silhouette_dotfiles_path }}/.digrc owner={{ silhouette_user }} mode=0600

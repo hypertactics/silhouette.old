@@ -1,0 +1,5 @@
+---
+- name: install coreutils
+  tags: coreutils
+  package: name=coreutils
+  when: (ansible_distribution == "MacOSX")

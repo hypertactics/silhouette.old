@@ -1,0 +1,5 @@
+---
+- name: install htop
+  tags: htop
+  package: name=htop-osx
+  when: (ansible_distribution == "MacOSX")

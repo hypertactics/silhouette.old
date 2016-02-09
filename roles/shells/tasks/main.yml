@@ -1,0 +1,11 @@
+---
+- include: bash.yml
+- include: fish.yml
+- include: zsh.yml
+- include: tcsh.yml
+- include: ksh.yml
+
+- name: PATH variables
+  template:
+    src: roles/shells/templates/paths.j2
+    dest: "{{ silhouette_user_home }}/testme_deletme"

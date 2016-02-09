@@ -1,0 +1,8 @@
+---
+dig:
+  - +nostats
+  - +nocomments
+  - +nocmd
+  - +noquestion
+  - +recurse
+  -  any

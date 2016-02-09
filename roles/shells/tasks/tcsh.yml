@@ -1,0 +1,6 @@
+---
+- name: install tcsh
+  package: name=tcsh state=latest
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")
