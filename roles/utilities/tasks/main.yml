@@ -11,4 +11,5 @@
 - include: chefdk.yml
 - include: jupyter.yml
 - include: sqlite.yml
-- include: rpmbuild.yml
+- include: sqlite.yml
+- include: resty.yml

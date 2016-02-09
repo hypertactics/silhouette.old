@@ -1,0 +1,5 @@
+---
+- name: install resty
+  tags: resty
+  package: name=resty
+  when: (ansible_distribution == "MacOSX")
