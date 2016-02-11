@@ -1,0 +1,9 @@
+---
+- name: install ksh
+  package: name=ksh state=latest
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")
+  tags:
+    - ksh
+    - shells

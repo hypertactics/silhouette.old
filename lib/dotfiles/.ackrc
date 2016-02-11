@@ -1,0 +1,10 @@
+--type-set
+chef=.erb,.rb
+--type-set
+python=.j2,.python,.py
+--type-set
+javascript=.js
+--type-set
+puppet=.erb,.rb
+--type-set
+bash=.bash,.sh

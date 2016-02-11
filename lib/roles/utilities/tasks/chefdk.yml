@@ -1,0 +1,9 @@
+---
+- stat: path=/opt/chefdk
+  register: st
+
+- name: install chefdk
+  tags: chefdk
+  homebrew_cask: name=chefdk
+  when: st.stat.exists is not defined
+  #when: (ansible_distribution == "MacOSX") and

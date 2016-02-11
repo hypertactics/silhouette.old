@@ -1,5 +1,0 @@
----
-- name: install chefdk
-  tags: chefdk
-  homebrew_cask: name=chefdk
-  when: (ansible_distribution == "MacOSX")

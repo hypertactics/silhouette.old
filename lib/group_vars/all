@@ -1,0 +1,8 @@
+---
+silhouette_user: "{{ lookup('env','USER') }}"
+silhouette_user_home: "{{ lookup('env','HOME' ) }}"
+silhouette_root_path: "{{ silhouette_user_home }}/.silhouette"
+silhouette_lib_path: "{{ silhouette_root_path }}/lib"
+silhouette_roles_path: "{{ silhouette_lib_path }}/roles"
+silhouette_dotfiles_path: "{{ silhouette_lib_path }}/dotfiles"
+silhouette_backup_path: "{{ silhouette_root_path }}/.backups"

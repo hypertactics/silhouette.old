@@ -1,0 +1,15 @@
+---
+- name: install zsh 
+  package: name=zsh state=latest
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")
+  tags:
+    - zsh
+    - shells
+
+- name: zsh dotfile
+  template: src=roles/shells/templates/zshrc.j2 dest={{ silhouette_dotfiles_path }}/.zshrc owner={{ silhouette_user }} mode=0600
+  tags:
+    - zsh
+    - dotfiles

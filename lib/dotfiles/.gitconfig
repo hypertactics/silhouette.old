@@ -1,0 +1,64 @@
+[color "diff"]
+  frag = cyan 
+  old = yellow 
+  current = yellow reverse 
+  meta = red bold 
+  new = green bold 
+  local = yellow 
+  remote = green 
+
+[color]
+  status = auto 
+  ui = True 
+  branch = auto 
+  diff = auto 
+  pager = True 
+  interactive = auto 
+
+[color "branch"]
+  current = cyan reverse white bold 
+  remote = green 
+  local = cyan 
+
+[alias]
+  ci = !sh -c 'git add . && git commit -m "$@"' - 
+  co = checkout 
+  cl = clone 
+  ir = !git rebase -i origin/master 
+  done = !git fetch && git rebase -i origin/master && git checkout master && git merge @{-1} 
+  wip = !git add -u && git commit -m 'WIP' 
+  vd = difftool --tool=vimdiff -y 
+  cp = cherry-pick 
+  diff = diff --word-diff 
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative 
+  mup = !git fetch origin && git rebase origin/master 
+  showdiff = !sh -c 'git difftool --tool=vimdiff -y $1^ $1' - 
+  di = diff 
+  lol = log --oneline --graph --decorate 
+  hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s' 
+  unstage = reset HEAD 
+  vimdiff = difftool --tool=vimdiff -y 
+  ours = !f() { git co --ours $@ && git add $@; }; f 
+  save = !git add -A && git commit -m 'SAVEPOINT' 
+  deploy = !sh -c 'git ci "$@" && git push' - 
+  dc = diff --cached 
+  undo = reset HEAD~1 --mixed 
+  br = branch 
+  ss = status --short 
+  theirs = !f() { git co --theirs $@ && git add $@; }; f 
+  st = status -s 
+  amend = commit -a --amend 
+  cob = checkout -b 
+  w = whatchanged 
+  x = !gitx 
+  latest = !sh -c 'git log $1@{1}..$1@{0} "$@"' 
+
+[color "status"]
+  untracked = white bold red 
+  added = green bold 
+  changed = yellow 
+
+[user]
+  name = mindmorass 
+  email = mindmorass@gmail.com 
+

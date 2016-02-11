@@ -1,0 +1,8 @@
+---
+dotfile: .ackrc
+ack:
+  puppet: [ '.erb','.rb' ]
+  chef: [ '.erb','.rb' ]
+  python: [ '.j2','.python','.py' ]
+  javascript: [ '.js' ]
+  bash: [ '.bash','.sh' ]

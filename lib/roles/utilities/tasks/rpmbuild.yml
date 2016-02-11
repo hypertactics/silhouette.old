@@ -1,0 +1,16 @@
+---
+- name: install rpmbuild
+  tags:
+    - rpmbuild
+    - utilities
+
+  package: name=rpmbuild
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian")
+
+- name: rpm macros
+  template: src={{ silhouette_roles_path }}/utilities/templates/rpmmacros.j2 dest={{ silhouette_dotfiles_path }}/.rpmmacros owner={{ silhouette_user }} mode=0600
+  tags: dotfiles
+  tags:
+    - rpmbuild
+    - dotfiles

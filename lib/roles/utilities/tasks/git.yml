@@ -1,0 +1,21 @@
+---
+- include_vars: git.yml
+  tags: 
+    - git
+    - utilities
+    - dotfiles
+
+- name: install git
+  package: name=git
+  when: (ansible_distribution == "CentOS") or
+        (ansible_distribution == "Debian") or
+        (ansible_distribution == "MacOSX")
+  tags: 
+    - git
+    - utilities
+
+- template: src={{ silhouette_roles_path }}/utilities/templates/gitconfig.j2 dest={{ silhouette_dotfiles_path }}/.gitconfig owner={{ silhouette_user }} mode=0600
+  tags:
+    - git
+    - dotfiles
+

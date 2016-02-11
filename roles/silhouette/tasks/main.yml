@@ -1,3 +1,0 @@
----
-- file: path={{ silhouette_lib_path }} state=directory recurse=yes mode=0700
-- file: path={{ silhouette_dotfiles_path }} state=directory recurse=yes mode=0700
