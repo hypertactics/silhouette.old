@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname $0)
+SCRIPT=$(basename $0)
+source ${SCRIPT_DIR}/.lib/functions.sh
+init_functions "${SCRIPT_DIR}" "${SCRIPT}"
+
+while getopts ":bcdlhHiptV" opt; do
+  case $opt in
+    b) backup ;;
+    c) ANSIBLE_SYNTAX_CHECK="--syntax-check" ;;
+    d) tag "dotfiles" ;;
+    i) INTERACTIVE="--step" ;;
+    h) show_help; exit 0 ;;
+    H) show_help 'extended'; exit 0 ;;
+    l) tag "links" ;;
+    p) intialize_profile ;;
+    t) list_tags ;;
+    V) ANSIBLE_VERBOSE="-vvv" ;;
+    *) unknown_argument "${opt}"; show_help; exit 2 ;;
+  esac
+done
+
+run
